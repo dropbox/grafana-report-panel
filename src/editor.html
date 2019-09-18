@@ -1,0 +1,36 @@
+<h3 class="page-heading">Theme</h3>
+<div class="gf-form-inline">
+    <div class="gf-form gf-form--grow">
+        <select style="width: auto; min-width: 150px" class="gf-form-input" ng-model="ctrl.panel.theme" ng-options="f for f in ctrl.getThemes()" ng-change="ctrl.render()"></select>
+    </div>
+</div>
+
+<h3 class="page-heading" style="margin-top: 30px">Content</h3>
+<p>
+    This area uses
+    <a target="_blank" rel="noreferrer" href="http://en.wikipedia.org/wiki/Markdown">Markdown</a>
+    and
+    <a target="_blank" rel="noreferrer" href="https://handlebarsjs.com/">Handlebars</a>.
+    HTML/CSS are supported, but not JS. See the "Help" tab for more information.
+</p>
+<div class="gf-form-inline">
+    <div class="gf-form gf-form--grow">
+        <code-editor content="ctrl.panel.content" on-change="ctrl.render()" data-mode="text"
+                     get-completer="ctrl.getCompleter()"
+                     data-show-gutter data-snippets-enabled="false" data-max-lines=2000 code-editor-focus="true">
+        </code-editor>
+    </div>
+</div>
+
+
+<h3 class="page-heading" style="margin-top: 30px">User Data</h3>
+<p>
+    A JSON object to be made available to your above template, via Handlebars, as "{{userData}}."
+</p>
+<div class="gf-form-inline">
+    <div class="gf-form gf-form--grow">
+        <code-editor content="ctrl.panel.userDataStr" on-change="ctrl.render()" data-mode="text"
+                     data-show-gutter data-snippets-enabled="false" data-max-lines=2000 code-editor-focus="true">
+        </code-editor>
+    </div>
+</div>

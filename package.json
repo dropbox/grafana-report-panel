@@ -1,0 +1,18 @@
+{
+  "name": "grafana-report-panel",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speezepearson/grafana-report-panel"
+  },
+  "scripts": {
+    "format": "echo \"Prettier v$(npm run prettier -- --version)\" && npm run prettier -- --write \"src/*.{ts,tsx}\" \"specs/*.{ts,tsx}\"",
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.117",
+    "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks"
+  },
+  "homepage": "https://github.com/speezepearson/grafana-report-panel"
+}

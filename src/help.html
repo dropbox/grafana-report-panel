@@ -1,0 +1,105 @@
+<div style="display: flex;">
+  <div style="flex: 1 1 60%; margin-right: 50px;">
+    <h3 class="page-heading">Markdown</h3>
+    <p>
+      The document will be parsed as Markdown, which means you can use all the shorthands you're
+      used to such as `## Header` and `- list item`, OR, you can use raw HTML. Additionally,
+      we've exposed a special syntax for injecting inline values based on the panel metrics.
+    </p>
+    <pre><code style="color: #f39c37;">
+## Sample Markdown /w Table
+
+| Series | Max |
+| ------ | --- |
+| A-series | $[thresholdStyles(max("A-series"), 2, 'red', 50, 'gray', 80, 'green')] |
+    </code></pre>
+
+    <h3 class="page-heading">Handlebars</h3>
+    <p>
+      Prior to parsing the template as markdown, we compile and render it with Handlebars. This
+      allows authors to iterate over series or variables as well as create content conditionally.
+      In addition to the standard Handlebars syntax/helpers, we've exposed some custom helpers
+      for working with metrics. Some examples:
+    </p>
+    <pre><code style="color: #f39c37;">{{!-- Looping over series to create a list of max values --}}
+Series:
+{{#each series}}- {{label}}: {{stats.max}}}{{/each}}
+
+{{!-- Print the stats from a series --}}
+{{min "A-Series"}}
+{{max "A-Series"}}
+{{avg "A-Series"}}
+{{val "A-Series"}}
+{{first "A-Series"}}
+{{current "A-Series"}}
+
+{{!-- Print dates --}}
+{{startDate "format"}}
+{{endDate "format"}}
+
+{{!-- Evaluate Javascript (only limited syntax supported) --}}
+{{eval "1 + 4"}}
+{{!-- or in block form --}}
+{{#eval}}
+  {{max "A-Series"}} / {{min "A-Series"}}
+{{/eval}}
+
+{{!-- Order a collection --}}
+{{#orderBy series "stats.max" "asc" as |ordered|}}
+  {{#each ordered}}
+    - {{label}}: {{stats.max}}}
+  {{/each}}
+{{/orderBy}}
+    </code></pre>
+  </div>
+  <div style="flex: 1 1 40%;">
+    <h3 class="page-heading">Handlebars Data</h3>
+    <p>The following data shape is available to be used in the template:</p>
+    <pre><code style="color: #f39c37;">{
+  series: {
+    [id: string]: {
+      label: string;
+      id: string;
+      alias: string;
+      stats: {
+        total: number;
+        max: number;
+        min: number;
+        logmin: number;
+        avg: number;
+        current: number;
+        first: number;
+        delta: number;
+        diff: number;
+        range: number;
+        timeStep: number;
+        count: number;
+      };
+      datapoints: [number /* value */, number /* timestamp */][];
+      flotpairs: [number /* timestamp */, number /* value */][];
+    };
+  };
+  variables: {
+    [name: string]: {
+      name: string;
+      label: string;
+      type: string;
+      query: string;
+      options: Array<{
+        selected: bool;
+        text: string;
+        value: string;
+      }>;
+      current: {
+        selected: bool;
+        text: string;
+        value: string;
+      };
+      selectedValues: string[];
+    };
+  }
+  // ... and whatever you've defined in the Data section above.
+}
+    </code></pre>
+  </div>
+</div>

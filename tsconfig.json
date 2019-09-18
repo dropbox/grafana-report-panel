@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "allowJs": false,
+    "esModuleInterop": true
+  },
+  "include": [ "**/*.ts" ],
+  "exclude": [ "**/*.d.ts", "**/*.js" ]
+}

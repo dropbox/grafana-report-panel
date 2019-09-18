@@ -1,0 +1,17 @@
+{
+  "type": "panel",
+  "name": "Report",
+  "id": "report",
+  "info": {
+    "description": "Markdown Report Panel for Grafana",
+    "author": {
+      "name": "Dropbox Inc.",
+      "url": "https://www.dropbox.com"
+    },
+    "logos": {
+      "small": "img/icn-table-panel.svg",
+      "large": "img/icn-table-panel.svg"
+    },
+    "version": "1.0.0"
+  }
+}
