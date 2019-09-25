@@ -8,7 +8,7 @@
     "url": "git+https://github.com/speezepearson/grafana-report-panel"
   },
   "scripts": {
-    "format": "echo \"Prettier v$(npm run prettier -- --version)\" && npm run prettier -- --write \"src/*.{ts,tsx}\" \"specs/*.{ts,tsx}\"",
+    "format": "echo \"Prettier v$(npm run prettier -- --version)\" && npm run prettier -- --write \"src/*.{ts,tsx}\" \"specs/*.{ts,tsx}\""
   },
   "devDependencies": {
     "@types/lodash": "^4.14.117",
