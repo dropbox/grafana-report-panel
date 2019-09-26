@@ -8,11 +8,25 @@
     "url": "git+https://github.com/speezepearson/grafana-report-panel"
   },
   "scripts": {
+    "test": "jest",
     "format": "echo \"Prettier v$(npm run prettier -- --version)\" && npm run prettier -- --write \"src/*.{ts,tsx}\" \"specs/*.{ts,tsx}\""
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.117",
-    "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks"
+    "grafana-sdk-mocks": "github:grafana/grafana-sdk-mocks",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
-  "homepage": "https://github.com/speezepearson/grafana-report-panel"
+  "homepage": "https://github.com/speezepearson/grafana-report-panel",
+  "dependencies": {},
+  "jest": {
+    "transform": {
+      ".*\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/?(*.)+(spec|test|jest).[jt]s?(x)"
+    ]
+  }
 }
