@@ -15,7 +15,7 @@ Then create a new pull request through the github interface.
 Unless otherwise noted:
 
 ```
-Copyright (c) 2016 Dropbox, Inc.
+Copyright (c) 2021 Dropbox, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
